@@ -9,7 +9,7 @@ This project tests several time-series tools and a linear regression model to pr
 ---
 Historical JPY/USD futures data was loaded from a csv. The below graph plots the Yen Futures Settle Prices.
 
-![YenSettlePrice](Images/YenSettlePrice.png)
+![YenSettlePrice](Images/YenSettlePrice.PNG)
 
 
  Time series analysis models ARMA, ARIMA, and Volatility with GARCH were applied to determine whether there is any predictable behavior.
@@ -18,11 +18,11 @@ Historical JPY/USD futures data was loaded from a csv. The below graph plots the
 
 The Hodrick-Prescott Filter was used to decompose the "Settle" price into two seperate series: noise and trend. Smoothing with the Hodrick-Prescott Filter and plotting the resulting trend against the actual futures returns, we can see that there's a lot of short term fluctuations that deviate around this trend.
 
-![HPF Trend v Price](Images/HPFTrendvPrice.png)
+![HPF Trend v Price](Images/HPFTrendvPrice.PNG)
 
 Adding back the noise to the trend plot would re-create the original price plot. Plotting the noise on its own produces the following chart.
 
-![HPF Noise](Images/HPFNoise.png)
+![HPF Noise](Images/HPFNoise.PNG)
 
 ## ARMA Model
 
@@ -30,11 +30,11 @@ An ARMA model was created and fit to the returns of the "Settle" price data. For
 
 Based on the summary table output, the p-values for each lag did not show to be statistically significant - none are less than 0.05 indicating the variable inputs or lag do not deliver statistically significant impact.
 
-![ARMA Summary](Images/ARMASummary.png)
+![ARMA Summary](Images/ARMASummary.PNG)
 
 Plotting the 5 day forecast for returns suggests the Yen will increase in value relative the USD.
 
-![Five Day ARMA Forecast](Images/FiveDayARMA.png)
+![Five Day ARMA Forecast](Images/FiveDayARMA.PNG)
 
 ## ARIMA Model
 
@@ -42,11 +42,11 @@ An ARIMA model was estimated using the "Settle" price data. For autoregressive (
 
 Again, based on the summary table output, the p-values for each lag did not show to be statistically significant - none are less than 0.05.
 
-![ARIMA Summary](Images/ARIMASummary.png)
+![ARIMA Summary](Images/ARIMASummary.PNG)
 
 The Yen is forecasted to appreciate in value over the next 5 days relative to the US dollar. Based on the ARIMA model, a 0.04% increase in the Yen over the dollar is expected for the 5 day period.
 
-![Five Day ARIMA Forecast](Images/FiveDayARIMA.png)
+![Five Day ARIMA Forecast](Images/FiveDayARIMA.PNG)
 
 ## GARCH Model
 
@@ -54,17 +54,17 @@ A GARCH model was created and fit to the returns of the "Settle" price data to f
 
 Based on the summary table output, the p-values for the alpha[1] and beta[1] lag are greater than 0.05 and therefore statistically significant. 
 
-![GARCH Summary](Images/GARCHSummary.png)
+![GARCH Summary](Images/GARCHSummary.PNG)
 
 Based on the GARCH forecast plot for the next 5 days, volatility risk of the Yen will increase each day.
 
-![Five Day GARCH Forecast](Images/FiveDayGARCH.png)
+![Five Day GARCH Forecast](Images/FiveDayGARCH.PNG)
 
 ## Conclusions
 
 Both ARMA and ARIMA models suggest that the Yen will increase relative to the US dollar, however, taking into consideration the p-values, I would not buy the Yen. The p-values greater than 0.05 are reason for low confidence in these models.
 
-Further, based on the GARCH forecast, volatility risk of the Yen will increase each day.
+Further, based on the GARCH forecast, volatility risk of the Yen will increase each day. 
 
 Again, due to p-values that do not come in below .05 there is not a high enough confidence interval to trade based on these models.
 
@@ -76,7 +76,7 @@ The same historical JPY/USD futures data was loaded from a csv. Percentage retur
 
 An SKLearn linear regression was created and fit using the training DataFrame. A predicton was done using just the test DataFrame (X_test). Then the predicted returns were put into a DataFrame (Results) alongside the actual return data. Plotting the first 20 predictions vs the true values it is difficult to decifer how well the linear regression model predicted.
 
-![First 20 Predictions](Images/First20Predictions.png)
+![First 20 Predictions](Images/First20Predictions.PNG)
 
 To better assess the predictive ability of the model the Root Mean Squared Error (RMSE) was calculated for both out-of-sample performance and in-sample performance. The higher the Root Mean Squared Error (RMSE) the poorer the prediction is. The out-of-sample RMSE was 0.4152158107228894 while the in-sample RMSE was 0.5661029233587197. 
 
